@@ -1,0 +1,4 @@
+Find the top 3 posts with the highest score. A post's score is calculated by calculating the total number of upvotes and subtracting the total number of downvotes
+Find the top 5 topics associated with the most number of posts
+Find the top 5 most active users. A user gets 5 points each time they create a post. And then they get 1 point per each upvote / downvote
+Find the top 5 users who have created the most number of posts
