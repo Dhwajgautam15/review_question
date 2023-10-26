@@ -1,30 +1,30 @@
 const posts = require("../reddit-dataset/posts.json");
 const topics =require("../reddit-dataset/topics.json");
 
-function top5postsWithMostNumberOfPosts(posts,topics){
-let topicObj={};
+function top5TopicsWithMostNumberOfPosts(posts,topics){
+let numberOfPosts={};
     for(let i in posts){
-        if( topicObj[posts[i].topicId]){
-            topicObj[posts[i].topicId] ++ 
+        if( numberOfPosts[posts[i].topicId]){
+            numberOfPosts[posts[i].topicId] ++ 
         }
         else{
-            topicObj[posts[i].topicId] = 1
+            numberOfPosts[posts[i].topicId] = 1
         }
     }
-    // console.log(topicObj);
+    // console.log(numberOfPosts);
    
-const sorted = Object.entries(topicObj).sort((a,b)=>b[1]-a[1]).slice(0,5);
+const top5Posts = Object.entries(numberOfPosts).sort((a,b)=>b[1]-a[1]).slice(0,5);
 
-let ans = {};
-for(let i in sorted){
+let top5Topics = {};
+for(let i in top5Posts){
     for(let j in topics){
-        if(topics[j].id==sorted[i][0]){
-            ans[topics[j].name]=sorted[i][1]
+        if(topics[j].id==top5Posts[i][0]){
+            top5Topics[topics[j].name]=top5Posts[i][1]
         }
     }
     }
-    console.log(ans);
+    console.log(top5Topics);
 
 
 }
-top5postsWithMostNumberOfPosts(posts,topics)
+top5TopicsWithMostNumberOfPosts(posts,topics)
